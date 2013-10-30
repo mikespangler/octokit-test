@@ -15,19 +15,23 @@ user.login
 # #   puts "#{repo.name} | #{repo.full_name}"
 # # end
 
-repos = client.list_repos.collect do |repo|
-  repo.name
-end
+# repos = client.list_repos.collect do |repo|
+#   repo.name
+# end
 
-puts repos
+# puts repos
 
-org_repos = client.organization_repositories('flatiron-school').collect do |repo|
-  repo.name
+# org_repos = client.organization_repositories('flatiron-school').collect do |repo|
+#   repo.name
+# end
+
+private_repos = client.organization_repositories('flatiron-school').collect do |repo|
+  repo.private
 end
 
 
 puts ""
-puts org_repos
+puts private_repos
 
 # client.organization_events('flatiron-school').each do |repo|
 #   puts "#{repo.name} | #{repo.full_name}"
